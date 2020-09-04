@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<!--
+<form action="/gdeltdocapi" method="post">
+	<p>Timelinetone: </p>
+	<p><input type="text" name="nm" /></p>
+	<p><input type="submit" value="submit"/></p>
+</form>
+ -->
+ <h2>GDELT full text search</h2>
+ <p>Search back to January 1, 2017, across all 65 machine translated languages using English keywords/phrases as search terms</p>
+ <!--
+ <form action="/gdeltdocapi" method="post">
+	
+	<label for="searchterm">Search term:</label>
+	<input type="text" id="searchterm" name="searchterm" /><br>
+	<label for="sourcecountry">Source country:</label>
+	<input type="text" id="sourcecountry" name="sourcecountry" /><a href="/static/data/LOOKUPCOUNTRIES.txt">Country Lookup</a><br>
+	<label for="sourcelang">Source language:</label>
+	<input type="text" id="sourcelang" name="sourcelang" /><a href="/static/data/LOOKUP-LANGUAGES.txt">Languages Lookup</a><br>
+	<label for="theme">Theme:</label>
+	<input type="text" id="theme" name="theme" /><a href="/static/data/LOOKUP-GKGTHEMES.txt">GKG Theme Lookup</a><br>
+	<label for="tone">Tone:</label>
+	<input type="text" id="tone" name="tone" />(e.g., tone>5 for -100 < tone < 100 and common -10 < tone < +10) <br>
+
+
+
+	<br>
+	<p><input type="submit" value="submit"/></p>
+</form>
+-->
+
+<form action="/gdeltdocapi" method="post">
+	<!-- Query -->
+	<div class="form-group row">
+		<label for="searchterm" class="col-2 col-form-label">Search term:</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="searchterm" name="searchterm"> 
+		</div>
+	  </div>
+	  <div class="form-group row">
+		<label for="domain" class="col-2 col-form-label">Domain:</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="domain" name="domain"> 
+		</div>
+      </div>
+	  <div class="form-group row">
+		<label for="sourcecountry" class="col-2 col-form-label">Source country:</label>
+		<div class="col-5">
+			<input class="form-control" type="text" value="" id="sourcecountry" name="sourcecountry"> 
+			<a href="/static/data/LOOKUPCOUNTRIES.txt" target="_blank">Country Lookup</a>
+		  </div>
+	  </div>
+	  
+	  <div class="form-group row">
+		<label for="sourcelang" class="col-2 col-form-label">Source language:</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="sourcelang" name="sourcelang">
+		  <a href="/static/data/LOOKUP-LANGUAGES.txt" target="_blank">Language Lookup</a>
+		</div>
+	  </div>
+	  
+	  <div class="form-group row">
+		<label for="theme" class="col-2 col-form-label">Theme</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="theme" name="theme">
+		  <a href="/static/data/LOOKUP-GKGTHEMES.txt" target="_blank">GKG Theme Lookup</a>
+		</div>
+	  </div>
+	  <div class="form-group row">
+		<label for="tone" class="col-2 col-form-label">Tone:</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="tone" name="tone">
+		</div>
+	  </div>
+	  <!-- STARTDATETIME/ENDDATETIME-->
+	  
+	  <div class="form-group row">
+		<label for="startdatetime" class="col-2 col-form-label">START DATE</label>
+		<div class="col-5">
+		  <input class="form-control" type="date" value="" id="startdatetime" name="startdatetime">
+		</div>
+	  </div>
+	  
+	  <div class="form-group row">
+		<label for="enddatetime" class="col-2 col-form-label">END DATE</label>
+		<div class="col-5">
+		  <input class="form-control" type="date" value="" id="enddatetime" name="enddatetime">
+		</div>
+	  </div>
+
+	  <div class="form-group row">
+		<label for="timespan" class="col-2 col-form-label">TIMESPAN</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="timespan" name="timespan">
+		</div>
+	  </div>
+
+
+	  <!-- MODE -->
+	  <div class="form-group row">
+		<label for="modeselection" class="col-2 col-form-label">OUTPUT MODE</label>
+		<div class="col-5">
+			<select class="form-control" id="mode" name="mode">
+				<option selected>artlist</option>
+				<option>timelinevol</option>
+				<option>timelinevolraw</option>
+				<option>timelinevolinfo</option>
+				<option>timelinetone</option>
+				<option>timelinelang</option>
+				<option>timelinesourcecountry</option>
+				<option>tonechart</option>
+			</select>
+		</div>
+	  </div>
+
+	  
+
+	  <!-- FORMAT -->
+	  <div class="form-group row">
+		<label for="formatselection" class="col-2 col-form-label">OUTPUT FORMAT</label>
+		<div class="col-5">
+			<select class="form-control" id="format" name="format">
+				<option selected>html</option>
+				<option>csv</option>
+				<option>json</option>
+			</select>
+		</div>
+	  </div>
+
+	  <!-- Translation for Article List -->
+	  
+	  <div class="form-check">
+		<input class="form-check-input" type="checkbox" value="googtrans" id="trans" name="trans">
+		<label class="form-check-label" for="trans">
+		  Google Translation
+		</label>
+	  </div>
+	
+
+	  <br>
+	  <br>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+{% endblock %}

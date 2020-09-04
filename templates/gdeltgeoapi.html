@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+ <h2>GDELT Geo 2.0 API</h2>
+ <p>Allows to create maps of any arbitrary keywords or phrase.</p>
+ 
+
+<form action="/gdeltgeoapi" method="post">
+	<!-- Query -->
+	<div class="form-group row">
+		<label for="searchterm" class="col-2 col-form-label">Search term:</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="searchterm" name="searchterm"> 
+		</div>
+      </div>
+      <div class="form-group row">
+		<label for="domain" class="col-2 col-form-label">Domain:</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="domain" name="domain"> 
+		</div>
+      </div>
+      <div class="form-group row">
+		<label for="location" class="col-2 col-form-label">Location:</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="location" name="location"> 
+		</div>
+      </div>
+      <div class="form-group row">
+		<label for="locationcc" class="col-2 col-form-label">LocationCC:</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="locationcc" name="locationcc">
+		  <a href="/static/data/LOOKUPCOUNTRIES.txt" target="_blank">Country Lookup</a> 
+		</div>
+	  </div>
+	  <div class="form-group row">
+		<label for="sourcecountry" class="col-2 col-form-label">Source country:</label>
+		<div class="col-5">
+			<input class="form-control" type="text" value="" id="sourcecountry" name="sourcecountry"> 
+			<a href="/static/data/LOOKUPCOUNTRIES.txt" target="_blank">Country Lookup</a>
+		  </div>
+	  </div>
+	  </div>
+	  
+	  <div class="form-group row">
+		<label for="sourcelang" class="col-2 col-form-label">Source language:</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="sourcelang" name="sourcelang">
+		  <a href="/static/data/LOOKUP-LANGUAGES.txt" target="_blank">Language Lookup</a>
+		</div>
+	  </div>
+	  
+	  <div class="form-group row">
+		<label for="theme" class="col-2 col-form-label">Theme</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="theme" name="theme">
+		  <a href="/static/data/LOOKUP-GKGTHEMES.txt" target="_blank">GKG Theme Lookup</a>
+		</div>
+	  </div>
+	  <div class="form-group row">
+		<label for="tone" class="col-2 col-form-label">Tone:</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="tone" name="tone">
+		</div>
+	  </div>
+
+	  <div class="form-group row">
+		<label for="timespan" class="col-2 col-form-label">TIMESPAN</label>
+		<div class="col-5">
+		  <input class="form-control" type="text" value="" id="timespan" name="timespan">
+		</div>
+	  </div>
+
+
+	  <!-- MODE -->
+	  <div class="form-group row">
+		<label for="modeselection" class="col-2 col-form-label">OUTPUT MODE</label>
+		<div class="col-5">
+			<select class="form-control" id="mode" name="mode">
+				<option selected>PointData</option>
+				<option>PointHeatmap</option>
+				<option>Country</option>
+				<option>SourceCountry</option>
+			</select>
+		</div>
+	  </div>
+
+	  <!-- FORMAT -->
+	  <div class="form-group row">
+		<label for="formatselection" class="col-2 col-form-label">OUTPUT FORMAT</label>
+		<div class="col-5">
+			<select class="form-control" id="format" name="format">
+				<option selected>html</option>
+				<option>csv</option>
+				<option>GeoJSON</option>
+			</select>
+		</div>
+	  </div>
+
+	  <br>
+	  <br>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+{% endblock %}
