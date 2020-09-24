@@ -124,8 +124,8 @@ def gdeltdocapi():#topic, sourcecountry, theme):
     params['mode'] = mode #'timelinevolinfo'
     msg = msg + "Mode: " + mode + ", "
     if mode != "artlist":
-        params['TIMELINESMOOTH'] = 5
-        msg = msg + "TIMELINESMOOTH: " + 5 + ", "
+        params['TIMELINESMOOTH'] = "5"
+        msg = msg + "TIMELINESMOOTH: " + "5" + ", "
     params['format'] = format
     msg = msg + "Format: " + format + ", "
 
@@ -771,7 +771,16 @@ def gdeltquery():
 
     return render_template("gdeltquery.html", result=queryurl, title=title)
 
+######################################################## 
+# GDELT Live Trends Dashboard
+# /livetrendsdashboard
+########################################################
+@app.route("/livetrendsdashboard")
+def livetrendsdashboard():
+    title = "GDELT Live Trends Dashboard"
+    dashboardurl = "http://live.gdeltproject.org/"
 
+    return render_template("livetrendsdashboard.html", result=dashboardurl, title=title)
 
 ####################################################################
 

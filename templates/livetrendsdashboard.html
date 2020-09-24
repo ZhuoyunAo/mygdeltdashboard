@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<p>
+    This is a summary of worldwide activity as seen through the eyes of GDELT, 
+    updated every 15 minutes. At the top of the page is a Visual News Map display 
+    of major stories worldwide, followed by a list of the top 60 trending 
+    narratives worldwide that are rapidly increasing in volume, followed at the 
+    bottom by coverage deemed of potential relevance to currently declared 
+    UN OCHA/ReliefWeb Disasters.
+</p>
+<!-- 
+<p>
+    To generate the Visual News Map at the top of the page, GDELT  examines 
+    all monitored coverage over the preceding 45 minutes and calculates 
+    for every location on Earth a list of articles mentioning that location 
+    in order of relevance to that location, relevance to emerging themes at 
+    that location, and level of detail in the article.
+</p>
+<p>
+    The Trending Narratives section of the page attempts to understand 
+    narratives trending across the world.  Similar to the Visual News Map, 
+    it compiles a spatial map of the entire planet, calculating a complete 
+    inventory for every location on earth of every article mentioning that place.  
+    It further breaks down each article into its component themes, 
+    creating a spatio-thematic grid over the world, computing the density of 
+    every theme in the coverage of every location. 
+
+</p>
+<p>
+    At the bottom of the page, GDELT lists any coverage it believes may be 
+    of possible relevance to active UN OCHA/ReliefWeb Disasters.
+
+</p>
+-->
+<iframe src="{{ result }}" width="100%" height="1200" frameborder="0" allowfullscreen></iframe>
+
+{% endblock %}
