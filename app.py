@@ -96,27 +96,26 @@ def gdeltdocapi():#topic, sourcecountry, theme):
     # https://zhuoyunao.github.io/#api=doc&query=covid&timelinemode=TimelineTone&timelinesmooth=0&startdatetime=20200101000000&enddatetime=20200301235959
     
     params = {}
-    query = []
-    query.append(searchterm)
+    query = searchterm
     msg = msg + "Search term: " + searchterm + ", "
     if sourcecountry != "":
         sourcecountry = "sourcecountry:"+sourcecountry
-        query.append(sourcecountry)
+        query = query + " " + sourcecountry
         msg = msg + "Source country: " + sourcecountry + ", "
     if domain != "":
         domain = "domain:"+domain
-        query.append(domain)
+        query = query + " " + domain
         msg = msg + "Domain: " + domain + ", "
     if sourcelang != "":
         sourcelang = "sourcelang:"+sourcelang
-        query.append(sourcelang)
+        query = query + " " + sourcelang
         msg = msg + "Source lang: " + sourcelang + ", "
     if theme != "":
         theme = "theme:"+theme
-        query.append(theme)
+        query = query + " " + theme
         msg = msg + "Theme: " + theme + ", "
     if tone != "":
-        query.append(tone)
+        query = query + " " + tone
         msg = msg + "Tone: " + tone + ", "
     
     params['query'] = query
